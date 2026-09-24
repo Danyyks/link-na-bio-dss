@@ -62,7 +62,7 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 |--------|-------|
 | **Marcação e estilo** | HTML5 · CSS3 (variáveis, `backdrop-filter`, animações) |
 | **Comportamento** | JavaScript puro (links montados a partir de um `CONFIG`) |
-| **Chatbot** | Função serverless na Vercel (`api/chat.js`) · Google Gemini (`gemini-2.5-flash-lite`, tier grátis) |
+| **Chatbot** | Função serverless na Vercel (`api/chat.js`) · Google Gemini (`gemini-flash-lite-latest`, tier grátis) |
 | **Tipografia** | Sora (títulos) · Inter (textos) via Google Fonts |
 | **Ícones** | [Lucide](https://lucide.dev/) · [Simple Icons](https://simpleicons.org/) |
 | **Hospedagem** | Vercel (site estático) — [link-na-bio-dss.vercel.app](https://link-na-bio-dss.vercel.app) |

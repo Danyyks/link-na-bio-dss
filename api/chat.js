@@ -1,7 +1,7 @@
 // Função serverless da Vercel: recebe a conversa e responde como o Huby (Gemini).
 // A chave fica só no servidor (variável de ambiente GEMINI_API_KEY).
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
+const MODEL = process.env.GEMINI_MODEL || "gemini-flash-lite-latest";
 const MAX_MSGS = 8;      // mensagens de histórico aceitas
 const MAX_CHARS = 400;   // tamanho máximo de cada mensagem do usuário
 const LIMIT = 20;        // mensagens por IP a cada 10 min (por instância, melhor esforço)
@@ -58,22 +58,32 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: "Mensagem inválida" });
   }
 
-  try {
-    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": process.env.GEMINI_API_KEY },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM }] },
-        contents,
-        generationConfig: { maxOutputTokens: 220, temperature: 0.8, thinkingConfig: { thinkingBudget: 0 } }
-      })
-    });
-    if (!r.ok) return res.status(502).json({ error: "Falha ao falar com a IA" });
-    const data = await r.json();
-    const reply = (data.candidates?.[0]?.content?.parts || []).map(p => p.text || "").join("").trim();
-    if (!reply) return res.status(502).json({ error: "Resposta vazia" });
-    return res.status(200).json({ reply });
-  } catch {
-    return res.status(502).json({ error: "Erro inesperado" });
+  const payload = JSON.stringify({
+    systemInstruction: { parts: [{ text: SYSTEM }] },
+    contents,
+    generationConfig: { maxOutputTokens: 400, temperature: 0.8, thinkingConfig: { thinkingLevel: "minimal" } }
+  });
+
+  // O tier grátis às vezes trava por segundos: limite curto + uma nova tentativa.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
+        method: "POST",
+        signal: AbortSignal.timeout(8000),
+        headers: { "Content-Type": "application/json", "x-goog-api-key": process.env.GEMINI_API_KEY },
+        body: payload
+      });
+      if (!r.ok) {
+        console.error("gemini", r.status);
+        if (r.status >= 500 || r.status === 429) continue;
+        break;
+      }
+      const data = await r.json();
+      const reply = (data.candidates?.[0]?.content?.parts || []).map(p => p.text || "").join("").trim();
+      if (reply) return res.status(200).json({ reply });
+    } catch (e) {
+      console.error("gemini", e.name);
+    }
   }
+  return res.status(502).json({ error: "IA indisponível" });
 };
