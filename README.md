@@ -10,9 +10,7 @@ Página "link na bio" da DSS Hub Tech — dashboards e chatbots sob medida para 
 
 <br />
 
-![Em breve no ar](https://img.shields.io/badge/Deploy-Em_breve-18394B?style=for-the-badge&logo=vercel&logoColor=white)
-
-<sub>🚧 Publicação na Vercel em andamento — o link será adicionado aqui.</sub>
+[![Ver no ar](https://img.shields.io/badge/Ver_no_ar-link--na--bio--dss.vercel.app-18394B?style=for-the-badge&logo=vercel&logoColor=white)](https://link-na-bio-dss.vercel.app)
 
 <br />
 
@@ -65,7 +63,7 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 | **Comportamento** | JavaScript puro (links montados a partir de um `CONFIG`) |
 | **Tipografia** | Sora (títulos) · Inter (textos) via Google Fonts |
 | **Ícones** | [Lucide](https://lucide.dev/) · [Simple Icons](https://simpleicons.org/) |
-| **Hospedagem** | Vercel (site estático) |
+| **Hospedagem** | Vercel (site estático) — [link-na-bio-dss.vercel.app](https://link-na-bio-dss.vercel.app) |
 
 <br />
 
@@ -112,7 +110,7 @@ python -m http.server 5180
 
 ## Roadmap
 
-- [ ] Publicar na Vercel e adicionar o link aqui.
+- [x] Publicar na Vercel.
 - [ ] Ativar o botão do **WhatsApp** quando houver número.
 - [ ] Imagem de pré-visualização (Open Graph) para compartilhamento.
 - [ ] Domínio próprio.
