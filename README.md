@@ -6,7 +6,7 @@
 
 **Simplificando o seu digital.**
 
-Página "link na bio" da DSS Hub Tech — dashboards e chatbots sob medida para pequenos negócios. Um único arquivo, sem build, feito para abrir rápido no celular.
+Página "link na bio" da DSS Hub Tech — dashboards e chatbots sob medida para pequenos negócios. Inclui o **Huby**, um chatbot com IA para o visitante testar na hora. Página leve, sem build, feita para abrir rápido no celular.
 
 <br />
 
@@ -47,6 +47,7 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 
 - ✉️ **Orçamento por e-mail** — abre o e-mail já com o assunto preenchido.
 - 📸 **Instagram** — atalho direto para o perfil da marca.
+- 🤖 **Huby, o chatbot** — conversa curta, educada e bem-humorada que sempre convida para o orçamento (Gemini, com chave protegida no servidor, limite de uso e resposta curta).
 - 💬 **WhatsApp** — marcado como "Em breve", pronto para ativar.
 - 📊 **Áreas de atuação** — Finanças, Atendimento e Operação em chips.
 - 🎞️ **Microinterações** — entrada escalonada, efeito ao tocar e foco visível, respeitando `prefers-reduced-motion`.
@@ -61,6 +62,7 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 |--------|-------|
 | **Marcação e estilo** | HTML5 · CSS3 (variáveis, `backdrop-filter`, animações) |
 | **Comportamento** | JavaScript puro (links montados a partir de um `CONFIG`) |
+| **Chatbot** | Função serverless na Vercel (`api/chat.js`) · Google Gemini (`gemini-2.5-flash-lite`, tier grátis) |
 | **Tipografia** | Sora (títulos) · Inter (textos) via Google Fonts |
 | **Ícones** | [Lucide](https://lucide.dev/) · [Simple Icons](https://simpleicons.org/) |
 | **Hospedagem** | Vercel (site estático) — [link-na-bio-dss.vercel.app](https://link-na-bio-dss.vercel.app) |
@@ -69,11 +71,14 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 
 ## Arquitetura
 
-Tudo vive em um único `index.html`, sem dependências nem etapa de build.
+A página vive em um único `index.html`, sem etapa de build. O chatbot usa uma função serverless que guarda a chave da IA fora do navegador.
 
 ```
 .
-├── index.html          # página completa (HTML + CSS + JS)
+├── index.html          # página completa (HTML + CSS + JS + chat do Huby)
+├── api/
+│   └── chat.js         # função serverless: prompt do Huby + chamada ao Gemini
+├── vercel.json
 ├── assets/
 │   ├── simbolo.svg     # símbolo oficial da marca (favicon e topo)
 │   └── prints/         # capturas usadas neste README
@@ -103,14 +108,16 @@ cd link-na-bio-dss
 python -m http.server 5180
 ```
 
-3. Abra `http://localhost:5180` no navegador (ou o próprio `index.html`).
-4. Edite o bloco `CONFIG` para trocar Instagram, e-mail e assunto.
+3. Abra `http://localhost:5180` no navegador. A página funciona, mas o chat precisa da função `/api/chat`.
+4. Para testar o chat, crie uma chave grátis no [Google AI Studio](https://aistudio.google.com/apikey), guarde em `GEMINI_API_KEY` (arquivo `.env.local`, já ignorado pelo git) e rode `vercel dev`.
+5. Edite o bloco `CONFIG` para trocar Instagram, e-mail e assunto.
 
 <br />
 
 ## Roadmap
 
 - [x] Publicar na Vercel.
+- [x] Chatbot **Huby** com IA.
 - [ ] Ativar o botão do **WhatsApp** quando houver número.
 - [ ] Imagem de pré-visualização (Open Graph) para compartilhamento.
 - [ ] Domínio próprio.
