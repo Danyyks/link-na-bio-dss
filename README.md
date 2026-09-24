@@ -55,9 +55,11 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 - 🤖 **Huby, o chatbot (destaque no topo)** — conversa curta, educada e bem-humorada que sempre convida para o orçamento (Gemini, com chave protegida no servidor, limite de uso e resposta curta).
 - 💬 **WhatsApp** — marcado como "Em breve", pronto para ativar.
 - 📊 **Áreas de atuação** — Finanças, Atendimento e Operação em chips.
+- 🪄 **Chat com cara de app** — painel que sobe com animação suave, arrasta para fechar, respostas que chegam em streaming, sugestões de próximas perguntas e botão "Tentar de novo".
 - 🎞️ **Microinterações** — entrada escalonada, efeito ao tocar e foco visível, respeitando `prefers-reduced-motion`.
-- 📱 **Mobile first** — alvos de toque grandes, sem rolagem lateral, com suporte à área segura do iOS.
-- 🔎 **Compartilhamento** — meta tags, Open Graph e favicon com o símbolo da marca.
+- 📱 **Mobile first** — alvos de toque de 44px+, sem rolagem lateral, suporte à área segura do iOS, chat que acompanha o teclado e fundo leve para não pesar no celular.
+- 🔎 **Compartilhamento** — imagem de prévia (Open Graph), ícone de tela inicial do iPhone e favicon com o símbolo da marca.
+- ♿ **Acessibilidade** — foco preso no chat aberto, leitura das respostas por leitores de tela e respeito a `prefers-reduced-motion`.
 
 <br />
 
@@ -85,7 +87,9 @@ A página vive em um único `index.html`, sem etapa de build. O chatbot usa uma 
 │   └── chat.js         # função serverless: prompt do Huby + chamada ao Gemini
 ├── vercel.json
 ├── assets/
-│   ├── simbolo.svg     # símbolo oficial da marca (favicon e topo)
+│   ├── simbolo.svg     # símbolo oficial da marca (topo)
+│   ├── og.png          # prévia ao compartilhar o link
+│   ├── apple-touch-icon.png · icon-192.png
 │   └── prints/         # capturas usadas neste README (home e chat)
 └── README.md
 ```
@@ -124,7 +128,8 @@ python -m http.server 5180
 - [x] Publicar na Vercel.
 - [x] Chatbot **Huby** com IA.
 - [ ] Ativar o botão do **WhatsApp** quando houver número.
-- [ ] Imagem de pré-visualização (Open Graph) para compartilhamento.
+- [x] Imagem de pré-visualização (Open Graph) para compartilhamento.
+- [x] Chat em streaming, gesto de arrastar e ajustes para mobile.
 - [ ] Domínio próprio.
 
 <br />

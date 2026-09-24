@@ -64,25 +64,58 @@ module.exports = async (req, res) => {
     generationConfig: { maxOutputTokens: 400, temperature: 0.8, thinkingConfig: { thinkingLevel: "minimal" } }
   });
 
-  // O tier grátis às vezes trava por segundos: limite curto + uma nova tentativa.
+  // Resposta em streaming: o texto vai chegando aos poucos (sensação de rapidez).
+  // O tier grátis às vezes trava por segundos: limite curto até o 1º trecho + novas tentativas.
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:streamGenerateContent?alt=sse`;
   for (let attempt = 0; attempt < 3; attempt++) {
+    const ctrl = new AbortController();
+    let timer = setTimeout(() => ctrl.abort(), 6000);
+    let started = false;
     try {
-      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
+      const r = await fetch(url, {
         method: "POST",
-        signal: AbortSignal.timeout(6000),
+        signal: ctrl.signal,
         headers: { "Content-Type": "application/json", "x-goog-api-key": process.env.GEMINI_API_KEY },
         body: payload
       });
       if (!r.ok) {
+        clearTimeout(timer);
         console.error("gemini", r.status);
         if (r.status >= 500 || r.status === 429) continue;
         break;
       }
-      const data = await r.json();
-      const reply = (data.candidates?.[0]?.content?.parts || []).map(p => p.text || "").join("").trim();
-      if (reply) return res.status(200).json({ reply });
+      const reader = r.body.getReader();
+      const dec = new TextDecoder();
+      let buf = "";
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += dec.decode(value, { stream: true });
+        let nl;
+        while ((nl = buf.indexOf("\n")) >= 0) {
+          const line = buf.slice(0, nl).trim();
+          buf = buf.slice(nl + 1);
+          if (!line.startsWith("data:")) continue;
+          let txt = "";
+          try { txt = (JSON.parse(line.slice(5)).candidates?.[0]?.content?.parts || []).map(p => p.text || "").join(""); } catch {}
+          if (!txt) continue;
+          if (!started) {
+            started = true;
+            clearTimeout(timer);
+            timer = setTimeout(() => ctrl.abort(), 15000); // teto para a resposta inteira
+            res.status(200);
+            res.setHeader("Content-Type", "text/plain; charset=utf-8");
+            res.setHeader("X-Content-Type-Options", "nosniff");
+          }
+          res.write(txt);
+        }
+      }
+      clearTimeout(timer);
+      if (started) return res.end();
     } catch (e) {
+      clearTimeout(timer);
       console.error("gemini", e.name);
+      if (started) return res.end(); // já enviou parte: entrega o que houver
     }
   }
   return res.status(502).json({ error: "IA indisponível" });
