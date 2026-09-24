@@ -33,11 +33,16 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 
 <br />
 
-## Tela
+## Telas
 
 <div align="center">
 
-<img src="assets/prints/desktop.png" width="640" alt="Página link na bio da DSS Hub Tech" />
+<table>
+  <tr>
+    <td align="center"><img src="assets/prints/home.png" width="260" alt="Página inicial" /><br /><sub><b>Página inicial</b></sub></td>
+    <td align="center"><img src="assets/prints/chat.png" width="260" alt="Conversa com o Huby" /><br /><sub><b>Conversa com o Huby</b></sub></td>
+  </tr>
+</table>
 
 </div>
 
@@ -47,7 +52,7 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 
 - ✉️ **Orçamento por e-mail** — abre o e-mail já com o assunto preenchido.
 - 📸 **Instagram** — atalho direto para o perfil da marca.
-- 🤖 **Huby, o chatbot** — conversa curta, educada e bem-humorada que sempre convida para o orçamento (Gemini, com chave protegida no servidor, limite de uso e resposta curta).
+- 🤖 **Huby, o chatbot (destaque no topo)** — conversa curta, educada e bem-humorada que sempre convida para o orçamento (Gemini, com chave protegida no servidor, limite de uso e resposta curta).
 - 💬 **WhatsApp** — marcado como "Em breve", pronto para ativar.
 - 📊 **Áreas de atuação** — Finanças, Atendimento e Operação em chips.
 - 🎞️ **Microinterações** — entrada escalonada, efeito ao tocar e foco visível, respeitando `prefers-reduced-motion`.
@@ -81,7 +86,7 @@ A página vive em um único `index.html`, sem etapa de build. O chatbot usa uma 
 ├── vercel.json
 ├── assets/
 │   ├── simbolo.svg     # símbolo oficial da marca (favicon e topo)
-│   └── prints/         # capturas usadas neste README
+│   └── prints/         # capturas usadas neste README (home e chat)
 └── README.md
 ```
 

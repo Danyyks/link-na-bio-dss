@@ -1,7 +1,7 @@
 // Função serverless da Vercel: recebe a conversa e responde como o Huby (Gemini).
 // A chave fica só no servidor (variável de ambiente GEMINI_API_KEY).
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-flash-lite-latest";
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 const MAX_MSGS = 8;      // mensagens de histórico aceitas
 const MAX_CHARS = 400;   // tamanho máximo de cada mensagem do usuário
 const LIMIT = 20;        // mensagens por IP a cada 10 min (por instância, melhor esforço)
@@ -65,11 +65,11 @@ module.exports = async (req, res) => {
   });
 
   // O tier grátis às vezes trava por segundos: limite curto + uma nova tentativa.
-  for (let attempt = 0; attempt < 2; attempt++) {
+  for (let attempt = 0; attempt < 3; attempt++) {
     try {
       const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`, {
         method: "POST",
-        signal: AbortSignal.timeout(8000),
+        signal: AbortSignal.timeout(6000),
         headers: { "Content-Type": "application/json", "x-goog-api-key": process.env.GEMINI_API_KEY },
         body: payload
       });
