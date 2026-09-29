@@ -67,6 +67,8 @@ As instruções do Huby ficam no próprio `api/chat.js`. As regras principais:
 
 - Nunca fala de valores, preços, mensalidades ou taxas. Se alguém pergunta quanto custa, ele explica que a equipe monta um orçamento a partir da ideia do cliente e já envia o valor junto.
 - Não inventa prazos, clientes, números ou funcionalidades.
+- Fala da equipe como um todo: depois do pedido de orçamento, "alguém da equipe entra em contato". Os nomes de quem está por trás da DSS só aparecem se o visitante perguntar diretamente.
+- Conduz a conversa com uma pergunta por vez: descobre o ramo do negócio, o que dá trabalho hoje, sugere uma solução concreta e só então convida para o orçamento.
 - Sabe que a DSS lança um app modelo por nicho, um de cada vez, começando por beleza e nail design, que ainda está em construção.
 - Atende negócios de qualquer tamanho em Sorocaba e região.
 - Não pede nem aceita dados sensíveis.
