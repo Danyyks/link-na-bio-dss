@@ -150,22 +150,6 @@
   .svc{display:flex;flex-direction:column;gap:10px}
   .svc .card{align-items:flex-start;padding:14px 16px 14px 14px}
   .svc .card .s{font-size:13.5px;line-height:1.45;margin-top:4px}
-  .niches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .niche{
-    display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:84px;padding:14px;border-radius:18px;
-    background:var(--glass);border:1px solid var(--line);color:var(--text);text-align:left;font:inherit;cursor:pointer;
-    transition:transform .25s var(--ease), background .25s;-webkit-tap-highlight-color:transparent;
-  }
-  .niche:active{transform:scale(.97)}
-  .niche:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
-  @media (hover:hover){.niche:hover{background:var(--glass-hover)}}
-  .niche .emo{font-size:22px;line-height:1;font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif}
-  .niche b{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.015em}
-  .badge{white-space:nowrap;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
-  .niches.one{grid-template-columns:1fr}
-  .niche.next{border-style:dashed;background:rgba(255,255,255,.03)}
-  .niche .desc{font-size:13.5px;line-height:1.45;color:var(--muted)}
-  .niche .badge{color:var(--sky);border-color:rgba(95,180,240,.4)}
   .about{padding:18px;border-radius:22px;background:var(--glass);border:1px solid var(--line);font-size:15px;line-height:1.55;color:var(--muted)}
   .about strong{color:var(--text);font-family:var(--font-display);font-weight:600}
   .sec + .links{margin-top:14px}
@@ -313,15 +297,6 @@
         <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
         <span class="txt"><span class="t">App do seu negócio</span><span class="s">Agenda, serviços, fidelidade e contato num app com a cara da sua marca.</span></span>
       </button>
-    </div>
-  </section>
-
-  <section class="sec rise" style="--i:8" aria-labelledby="h-niche">
-    <h2 id="h-niche">Apps por nicho</h2>
-    <p class="hint">Um app modelo pronto para cada tipo de negócio.</p>
-    <div class="niches one">
-      <button type="button" class="niche" data-q="Tenho um studio de beleza e nail design, o que vocês fariam?"><span class="emo" aria-hidden="true">💅</span><b>Beleza e nail design</b><span class="badge">Em construção</span></button>
-      <button type="button" class="niche next" data-q="Queria ver um app para o meu tipo de negócio"><span class="emo" aria-hidden="true">✨</span><b>Qual o próximo nicho?</b><span class="desc">A gente lança um nicho por vez. Conta pro Huby qual você quer ver.</span></button>
     </div>
   </section>
 
