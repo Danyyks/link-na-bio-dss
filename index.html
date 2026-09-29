@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DSS Hub Tech</title>
-<meta name="description" content="Dashboards e chatbots sob medida para pequenos negócios. Simplificando o seu digital.">
+<meta name="description" content="A gente tira o trabalho repetido do seu negócio. Chatbots, dashboards e apps sob medida para pequenos negócios de Sorocaba e região.">
 <meta name="theme-color" content="#0B1E29">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://link-na-bio-dss.vercel.app">
 <meta property="og:title" content="DSS Hub Tech">
-<meta property="og:description" content="Dashboards e chatbots sob medida para pequenos negócios.">
+<meta property="og:description" content="A gente tira o trabalho repetido do seu negócio.">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:image" content="https://link-na-bio-dss.vercel.app/assets/og.png">
 <meta property="og:image:width" content="1200">
@@ -82,34 +82,23 @@
   .rise{opacity:0;transform:translateY(14px);animation:rise .7s var(--ease) forwards;animation-delay:calc(var(--i,0) * 70ms + 60ms)}
   @keyframes rise{to{opacity:1;transform:none}}
 
-  .mark{
-    position:relative;width:104px;height:104px;margin-bottom:24px;
-    border-radius:30px;
-    box-shadow:0 0 0 1px rgba(255,255,255,.16), 0 24px 48px -12px rgba(0,0,0,.55), 0 0 60px rgba(95,180,240,.22);
+  .huby{
+    position:relative;width:128px;height:128px;margin-bottom:22px;border-radius:30px;
+    display:grid;place-items:center;
+    background:linear-gradient(160deg,#E4EFF2,#BCD6DE);
+    box-shadow:0 0 0 1px rgba(255,255,255,.3), 0 24px 48px -12px rgba(0,0,0,.55), 0 0 60px rgba(95,180,240,.22);
   }
-  .mark img{width:100%;height:100%;display:block;border-radius:30px}
-  .mark::after{ /* brilho de vidro no topo */
-    content:"";position:absolute;inset:0;border-radius:30px;pointer-events:none;
-    background:linear-gradient(160deg, rgba(255,255,255,.22), transparent 42%);
-  }
+  .huby svg{width:80%;height:auto;animation:bob 1.8s steps(2) infinite}
+  .pix svg{display:block;width:100%;height:auto}
+  .pix .lid{animation:lid 3.38s linear infinite}
+  @keyframes lid{0%,65%{opacity:1}65.1%,69%{opacity:0}69.1%,95.8%{opacity:1}95.9%,100%{opacity:0}}
+  @keyframes bob{50%{transform:translateY(-3%)}}
 
   h1{text-wrap:balance;font-family:var(--font-display);font-size:29px;font-weight:700;letter-spacing:-.035em;line-height:1.1}
   h1 span{font-weight:400;color:var(--sky);letter-spacing:-.02em}
-  .slogan{margin-top:10px;font-family:var(--font-display);font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sky)}
-  .lead{margin-top:18px;font-size:16px;line-height:1.55;color:var(--muted);max-width:340px;text-wrap:balance}
+  .eyebrow{margin-top:10px;font-family:var(--font-display);font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sky)}
+  .lead{margin-top:14px;font-family:var(--font-display);font-size:19px;font-weight:600;line-height:1.35;letter-spacing:-.015em;max-width:340px;text-wrap:balance}
 
-  .chips{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:22px}
-  .chip{
-    display:inline-flex;align-items:center;gap:6px;
-    padding:7px 9px 7px 8px;border-radius:999px;
-    background:var(--glass);border:1px solid var(--line);color:var(--text);cursor:pointer;
-    font-family:var(--font-display);font-size:11.5px;font-weight:600;white-space:nowrap;
-    transition:transform .2s var(--ease), background .2s;-webkit-tap-highlight-color:transparent;
-  }
-  .chip:active{transform:scale(.95);background:var(--glass-hover)}
-  .chip:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
-  @media (hover:hover){.chip:hover{background:var(--glass-hover)}}
-  .chip .emo{font-size:14px;line-height:1;font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif}
 
   .links{width:100%;margin-top:34px;display:flex;flex-direction:column;gap:12px}
   .card{
@@ -153,10 +142,37 @@
   .card:not(.soon):active{transform:scale(.98)}
   .card:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
 
+
+  /* seções */
+  .sec{width:100%;margin-top:44px;text-align:left}
+  .sec h2{font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sky);margin-bottom:6px}
+  .sec .hint{font-size:13px;color:var(--muted);margin-bottom:14px}
+  .svc{display:flex;flex-direction:column;gap:10px}
+  .svc .card{align-items:flex-start;padding:14px 16px 14px 14px}
+  .svc .card .s{font-size:13.5px;line-height:1.45;margin-top:4px}
+  .niches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .niche{
+    display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-height:92px;padding:14px;border-radius:18px;
+    background:var(--glass);border:1px solid var(--line);color:var(--text);text-align:left;font:inherit;cursor:pointer;
+    transition:transform .25s var(--ease), background .25s;-webkit-tap-highlight-color:transparent;
+  }
+  .niche:active{transform:scale(.97)}
+  .niche:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+  @media (hover:hover){.niche:hover{background:var(--glass-hover)}}
+  .niche .emo{font-size:22px;line-height:1;font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif}
+  .niche b{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.015em}
+  .badge{white-space:nowrap;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+  .niche.done{border-color:rgba(74,222,128,.45);background:rgba(74,222,128,.07)}
+  .niche.done .badge{color:#4ADE80;border-color:rgba(74,222,128,.45)}
+  .about{padding:18px;border-radius:22px;background:var(--glass);border:1px solid var(--line);font-size:15px;line-height:1.55;color:var(--muted)}
+  .about strong{color:var(--text);font-family:var(--font-display);font-weight:600}
+  .sec + .links{margin-top:14px}
+
   footer{margin-top:40px;font-size:12.5px;color:rgba(244,248,251,.62);text-wrap:balance;letter-spacing:.01em}
 
   @media (prefers-reduced-motion:reduce){
     .rise{animation:none;opacity:1;transform:none}
+    .huby svg,.pix .lid{animation:none}
     .card,.card .go{transition:none}
   }
   @media (min-width:600px){
@@ -188,7 +204,7 @@
   .panel.dragging{transition:none!important}
   .grab{position:absolute;top:8px;left:50%;width:40px;height:5px;margin-left:-20px;border-radius:3px;background:rgba(255,255,255,.24)}
   .ph{display:flex;align-items:center;gap:12px;padding:24px 14px 14px 16px;border-bottom:1px solid var(--line);touch-action:none;cursor:grab}
-  .ph .av{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;font-size:20px;background:rgba(255,255,255,.08)}
+  .ph .av{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;padding:4px;background:linear-gradient(160deg,#E4EFF2,#BCD6DE)}
   .ph .nm{flex:1;line-height:1.2;text-align:left}
   .ph .nm b{font-family:var(--font-display);font-size:15px;font-weight:600;display:block}
   .ph .nm small{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
@@ -229,7 +245,7 @@
     box-shadow:0 18px 44px -12px rgba(41,82,227,.75), inset 0 1px 0 rgba(255,255,255,.35);
     animation:rise .7s var(--ease) forwards, glow 3.2s ease-in-out 3;animation-delay:calc(var(--i,0) * 70ms + 60ms), 1.4s;
   }
-  .card.featured .ico{background:rgba(255,255,255,.2);color:#fff}
+  .card.featured .ico{background:linear-gradient(160deg,#E4EFF2,#BCD6DE);color:#fff;padding:5px}
   .card.featured .s,.card.featured .go{color:rgba(255,255,255,.85)}
   .card .tag{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;margin-left:8px;padding:2px 7px;border-radius:999px;background:#fff;color:#2952E3;vertical-align:2px}
   @keyframes glow{50%{box-shadow:0 18px 54px -8px rgba(95,180,240,.85), inset 0 1px 0 rgba(255,255,255,.35)}}
@@ -243,8 +259,8 @@
   }
   @media (max-height:680px){
     main{padding-top:32px}
-    .mark{width:88px;height:88px;margin-bottom:18px;border-radius:26px}.mark img,.mark::after{border-radius:26px}
-    .lead{margin-top:12px}.chips{margin-top:16px}.links{margin-top:24px}
+    .huby{width:104px;height:104px;margin-bottom:18px;border-radius:26px}
+    .links{margin-top:24px}
   }
   @media (prefers-reduced-motion:reduce){.panel,.scrim,.b,.card.featured,.sugs button,.cta{transition:none!important;animation:none!important}.card.featured{opacity:1;transform:none}}
 </style>
@@ -254,44 +270,76 @@
 <main>
   <div class="ring" aria-hidden="true"></div>
 
-  <div class="mark rise" style="--i:0"><img src="assets/simbolo.svg" alt="Símbolo da DSS Hub Tech" width="104" height="104"></div>
+  <div class="huby pix rise" style="--i:0" data-huby role="img" aria-label="Huby, o mascote robô da DSS Hub Tech"></div>
 
   <h1 class="rise" style="--i:1">DSS Hub <span>Tech</span></h1>
-  <p class="slogan rise" style="--i:2">simplificando o seu digital</p>
-  <p class="lead rise" style="--i:3">Dashboards e chatbots sob medida para pequenos negócios ficarem mais fáceis de gerir.</p>
+  <p class="eyebrow rise" style="--i:2">Chatbots · Dashboards · Apps</p>
+  <p class="lead rise" style="--i:3">A gente tira o trabalho repetido do seu negócio.</p>
 
-  <div class="chips rise" style="--i:4">
-    <button type="button" class="chip" data-q="Como a DSS pode me ajudar com as finanças do meu negócio?"><span class="emo" aria-hidden="true">📊</span>Finanças</button>
-    <button type="button" class="chip" data-q="Como um chatbot pode melhorar o atendimento do meu negócio?"><span class="emo" aria-hidden="true">🤖</span>Atendimento</button>
-    <button type="button" class="chip" data-q="Como a DSS pode organizar a operação do meu dia a dia?"><span class="emo" aria-hidden="true">📦</span>Operação</button>
-  </div>
+  <nav class="links" aria-label="Contato">
+    <a class="card primary rise" style="--i:4" id="mail">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></span>
+      <span class="txt"><span class="t">Peça um orçamento</span><span class="s">Mande a ideia, a gente devolve com o valor</span></span>
+      <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
 
-  <nav class="links" aria-label="Links">
     <button type="button" class="card featured rise" style="--i:5" id="huby-open">
-      <span class="ico">🤖</span>
+      <span class="ico pix" data-huby aria-hidden="true"></span>
       <span class="txt"><span class="t">Converse com o Huby<em class="tag">IA</em></span><span class="s">Teste nosso chatbot agora</span></span>
       <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
     </button>
 
-    <a class="card rise" style="--i:6" id="mail">
-      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></span>
-      <span class="txt"><span class="t">Peça um orçamento</span><span class="s">Por e-mail, sem compromisso</span></span>
-      <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
-    </a>
-
-    <a class="card rise" style="--i:7" id="ig" target="_blank" rel="noopener">
-      <span class="ico brand-ig"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span>
-      <span class="txt"><span class="t">Instagram</span><span class="s" id="ig-handle"></span></span>
-      <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
-    </a>
-
-    <div class="card soon rise" style="--i:8" role="link" aria-disabled="true">
-      <span class="ico brand-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>
+    <div class="card soon rise" style="--i:6" role="link" aria-disabled="true">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>
       <span class="txt"><span class="t">WhatsApp</span><span class="s">Em breve</span></span>
     </div>
   </nav>
 
-  <footer class="rise" style="--i:9">© 2026 · Do briefing ao deploy, sob medida.</footer>
+  <section class="sec rise" style="--i:7" aria-labelledby="h-svc">
+    <h2 id="h-svc">O que a gente faz</h2>
+    <p class="hint">Toque em um card para perguntar ao Huby.</p>
+    <div class="svc">
+      <button type="button" class="card" data-q="Como funciona o chatbot de vocês para o meu negócio?">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></span>
+        <span class="txt"><span class="t">Chatbot</span><span class="s">Responde seus clientes no WhatsApp e no Instagram, até às 23h.</span></span>
+      </button>
+      <button type="button" class="card" data-q="O que é um dashboard e como ele ajuda meu negócio?">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span>
+        <span class="txt"><span class="t">Dashboard</span><span class="s">Veja quanto entrou, saiu e sobrou, numa tela só.</span></span>
+      </button>
+      <button type="button" class="card" data-q="Como seria um app com a cara do meu negócio?">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
+        <span class="txt"><span class="t">App do seu negócio</span><span class="s">Agenda, serviços, fidelidade e contato num app com a cara da sua marca.</span></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="sec rise" style="--i:8" aria-labelledby="h-niche">
+    <h2 id="h-niche">Apps por nicho</h2>
+    <p class="hint">Modelos prontos, ajustados para a sua marca.</p>
+    <div class="niches">
+      <button type="button" class="niche done" data-q="Tenho um nail studio, o que vocês fariam?"><span class="emo" aria-hidden="true">💅</span><b>Nail studio</b><span class="badge">Projeto entregue</span></button>
+      <button type="button" class="niche" data-q="Tenho uma barbearia, o que vocês fariam?"><span class="emo" aria-hidden="true">💈</span><b>Barbearia</b><span class="badge">Em breve</span></button>
+      <button type="button" class="niche" data-q="Tenho uma lanchonete, o que vocês fariam?"><span class="emo" aria-hidden="true">🍔</span><b>Lanchonete</b><span class="badge">Em breve</span></button>
+      <button type="button" class="niche" data-q="Tenho um petshop, o que vocês fariam?"><span class="emo" aria-hidden="true">🐾</span><b>Petshop</b><span class="badge">Em breve</span></button>
+      <button type="button" class="niche" data-q="Tenho um consultório, o que vocês fariam?"><span class="emo" aria-hidden="true">🩺</span><b>Consultório</b><span class="badge">Em breve</span></button>
+    </div>
+  </section>
+
+  <section class="sec rise" style="--i:9" aria-labelledby="h-about">
+    <h2 id="h-about">Quem somos</h2>
+    <p class="about"><strong>DSS = Dany, Suellen e Simone.</strong> 3 amigos de ADS em Sorocaba construindo tecnologia de verdade para o pequeno negócio.</p>
+  </section>
+
+  <nav class="links rise" style="--i:10" aria-label="Redes sociais">
+    <a class="card" id="ig" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span>
+      <span class="txt"><span class="t">Instagram</span><span class="s" id="ig-handle"></span></span>
+      <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
+    </a>
+  </nav>
+
+  <footer class="rise" style="--i:11">© 2026 · Do briefing ao deploy, sob medida.</footer>
 </main>
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Chat com o Huby" aria-hidden="true">
@@ -299,7 +347,7 @@
   <div class="panel" id="panel">
     <div class="grab" aria-hidden="true"></div>
     <div class="ph" id="ph">
-      <div class="av" aria-hidden="true">🤖</div>
+      <div class="av pix" data-huby aria-hidden="true"></div>
       <div class="nm"><b>Huby</b><small>Assistente da DSS Hub Tech</small></div>
       <button class="x" id="huby-close" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>
@@ -327,6 +375,38 @@
   $("ig-handle").textContent = "@" + CONFIG.instagram;
   $("mail").href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent(CONFIG.emailSubject);
 
+
+  // ---- Huby em pixel art (mesmo desenho do kit: grade 16x15, pose "Parado" com piscada) ----
+  (function(){
+    const C={B:"#2B6480",L:"#4C8FAE",D:"#18394B",S:"#0A1B23",E:"#6FF5CF",A:"#FFB547"};
+    const G=[
+      ".......AA.......",
+      ".......DD.......",
+      "...BBBBBBBBBB...",
+      "..BLLBBBBBBBBB..",
+      "..BSSSSSSSSSSB..",
+      "..BSSEESSEESSB..",
+      "..BSSEESSEESSB..",
+      "..BSSSSSSSSSSB..",
+      "..BBBBBBBBBBBB..",
+      "...DDDDDDDDDD...",
+      "..DDBBBBBBBBDD..",
+      "..D.BBBBBBBB.D..",
+      "....BBBBBBBB....",
+      ".....BB..BB.....",
+      ".....DD..DD....."
+    ];
+    let body="",lid="";
+    G.forEach((row,y)=>[...row].forEach((ch,x)=>{
+      if(ch===".")return;
+      const r=`<rect x="${x}" y="${y}" width="1" height="1" fill="${C[ch]}"/>`;
+      if(y===5&&ch==="E"){body+=`<rect x="${x}" y="${y}" width="1" height="1" fill="${C.S}"/>`;lid+=r;}
+      else body+=r;
+    }));
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 18 17" shape-rendering="crispEdges" aria-hidden="true">${body}<g class="lid">${lid}</g></svg>`;
+    document.querySelectorAll("[data-huby]").forEach(el=>el.insertAdjacentHTML("afterbegin",svg));
+  })();
+
   // ---- Huby (chatbot) ----
   (function(){
     const sheet=$("sheet"),panel=$("panel"),scrim=$("scrim"),ph=$("ph"),msgs=$("msgs"),inp=$("inp"),send=$("send"),sugs=$("sugs"),cta=$("cta"),sr=$("sr");
@@ -339,8 +419,8 @@
     const DOTS='<span class="dots"><i></i><i></i><i></i></span>';
     cta.href=$("mail").href;
 
-    const FIRST=["O que a DSS faz?","Como um chatbot ajuda meu negócio?","Quanto custa?"];
-    const POOL=["Quanto custa?","Como funciona um chatbot?","Vocês fazem dashboard financeiro?","Quanto tempo leva um projeto?","Como peço um orçamento?","O que o Huby consegue fazer?"];
+    const FIRST=["Tenho um salão, o que vocês fariam?","O que é um dashboard?","Como peço um orçamento?"];
+    const POOL=["Como peço um orçamento?","Quanto custa?","Como funciona um chatbot?","Quem são vocês?","O que é um dashboard?","O que o Huby consegue fazer?"];
 
     const toBottom=()=>{msgs.scrollTop=msgs.scrollHeight;};
     function bubble(text,who){const d=document.createElement("div");d.className="b "+who;d.textContent=text;msgs.appendChild(d);toBottom();return d;}
@@ -456,7 +536,7 @@
     ph.addEventListener("pointerup",endDrag);ph.addEventListener("pointercancel",endDrag);
 
     $("huby-open").onclick=()=>open();
-    document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>open(c.dataset.q));
+    document.querySelectorAll("[data-q]").forEach(c=>c.onclick=()=>open(c.dataset.q));
     $("huby-close").onclick=close;scrim.onclick=close;
     $("form").onsubmit=e=>{e.preventDefault();ask(inp.value);};
     document.addEventListener("keydown",e=>{
