@@ -4,9 +4,9 @@
 
 # Link na bio · DSS Hub Tech
 
-**Simplificando o seu digital.**
+**A gente tira o trabalho repetido do seu negócio.**
 
-Página "link na bio" da DSS Hub Tech — dashboards e chatbots sob medida para pequenos negócios. Inclui o **Huby**, um chatbot com IA para o visitante testar na hora. Página leve, sem build, feita para abrir rápido no celular.
+Página "link na bio" da DSS Hub Tech. Reúne o pedido de orçamento, o Instagram e o Huby, nosso mascote robô, que também é um chatbot com IA para o visitante testar na hora. É uma página leve, sem etapa de build, feita para abrir rápido no celular.
 
 <br />
 
@@ -27,9 +27,9 @@ Página "link na bio" da DSS Hub Tech — dashboards e chatbots sob medida para 
 
 ## Sobre o projeto
 
-A **DSS Hub Tech** é uma empresa de programação formada por três estudantes de Análise e Desenvolvimento de Sistemas, focada em **dashboards e chatbots sob medida** para pequenos negócios ficarem mais fáceis de gerir.
+A **DSS Hub Tech** é formada por Dany, Suellen e Simone, três amigos de Análise e Desenvolvimento de Sistemas em Sorocaba. A gente cria chatbots, dashboards e apps sob medida para quem atende, vende e empreende.
 
-Esta página é o cartão de visitas digital da marca: um lugar único para o cliente **pedir um orçamento**, seguir no **Instagram** e, em breve, chamar no **WhatsApp**. O visual usa a identidade da empresa (azul-petróleo `#18394B`), cartões de vidro, tipografia profissional (**Sora** nos títulos e **Inter** nos textos) e ícones de bibliotecas abertas.
+Esta página é o cartão de visitas digital da marca e o link que fica na bio do Instagram. Quem chega aqui pode pedir um orçamento, conversar com o Huby ou seguir a DSS. O visual segue a identidade da empresa: azul-petróleo `#18394B`, cartões de vidro, Sora nos títulos e Inter nos textos.
 
 <br />
 
@@ -39,7 +39,7 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 
 <table>
   <tr>
-    <td align="center"><img src="assets/prints/home.png" width="260" alt="Página inicial" /><br /><sub><b>Página inicial</b></sub></td>
+    <td align="center"><img src="assets/prints/home.png" width="260" alt="Página inicial com o Huby comemorando" /><br /><sub><b>Página inicial</b></sub></td>
     <td align="center"><img src="assets/prints/chat.png" width="260" alt="Conversa com o Huby" /><br /><sub><b>Conversa com o Huby</b></sub></td>
   </tr>
 </table>
@@ -48,18 +48,28 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 
 <br />
 
-## Funcionalidades
+## O que tem na página
 
-- ✉️ **Orçamento por e-mail** — abre o e-mail já com o assunto preenchido.
-- 📸 **Instagram** — atalho direto para o perfil da marca.
-- 🤖 **Huby, o chatbot (destaque no topo)** — conversa curta, educada e bem-humorada que sempre convida para o orçamento (Gemini, com chave protegida no servidor, limite de uso e resposta curta).
-- 💬 **WhatsApp** — marcado como "Em breve", pronto para ativar.
-- 📊 **Áreas de atuação** — Finanças, Atendimento e Operação em chips.
-- 🪄 **Chat com cara de app** — painel que sobe com animação suave, arrasta para fechar, respostas que chegam em streaming, sugestões de próximas perguntas e botão "Tentar de novo".
-- 🎞️ **Microinterações** — entrada escalonada, efeito ao tocar e foco visível, respeitando `prefers-reduced-motion`.
-- 📱 **Mobile first** — alvos de toque de 44px+, sem rolagem lateral, suporte à área segura do iOS, chat que acompanha o teclado e fundo leve para não pesar no celular.
-- 🔎 **Compartilhamento** — imagem de prévia (Open Graph), ícone de tela inicial do iPhone e favicon com o símbolo da marca.
-- ♿ **Acessibilidade** — foco preso no chat aberto, leitura das respostas por leitores de tela e respeito a `prefers-reduced-motion`.
+- **Huby no topo.** O mascote em pixel art (16 x 15 pixels) recebe o visitante na pose "Comemorando", com dois quadros alternados. Quem ativou "reduzir movimento" no celular vê o Huby parado.
+- **Peça um orçamento.** Abre uma janela com três caminhos: escrever pelo Gmail, abrir o app de e-mail do aparelho ou copiar o endereço `dsshubtech@gmail.com`. Isso existe porque um link `mailto:` sozinho não faz nada em computador sem app de e-mail configurado nem no navegador interno do Instagram.
+- **Converse com o Huby.** Chat com IA que responde em poucas frases e sempre termina com uma pergunta ou um próximo passo.
+- **WhatsApp.** Marcado como "Em breve", pronto para ativar quando houver número.
+- **O que a gente faz.** Três cards: Chatbot, Dashboard e App do seu negócio. Tocar em um deles abre o Huby com uma pergunta sobre aquele serviço.
+- **Quem somos** e o atalho para o Instagram `@dsshubtech`.
+
+<br />
+
+## O Huby
+
+O chat roda em uma função serverless na Vercel (`api/chat.js`) que chama o Google Gemini. A chave da IA fica só no servidor, e a função limita o tamanho das mensagens e a quantidade de pedidos por visitante.
+
+As instruções do Huby ficam no próprio `api/chat.js`. As regras principais:
+
+- Nunca fala de valores, preços, mensalidades ou taxas. Se alguém pergunta quanto custa, ele explica que a equipe monta um orçamento a partir da ideia do cliente e já envia o valor junto.
+- Não inventa prazos, clientes, números ou funcionalidades.
+- Sabe que a DSS lança um app modelo por nicho, um de cada vez, começando por beleza e nail design, que ainda está em construção.
+- Atende negócios de qualquer tamanho em Sorocaba e região.
+- Não pede nem aceita dados sensíveis.
 
 <br />
 
@@ -67,39 +77,40 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 
 | Camada | Stack |
 |--------|-------|
-| **Marcação e estilo** | HTML5 · CSS3 (variáveis, `backdrop-filter`, animações) |
-| **Comportamento** | JavaScript puro (links montados a partir de um `CONFIG`) |
-| **Chatbot** | Função serverless na Vercel (`api/chat.js`) · Google Gemini (`gemini-flash-lite-latest`, tier grátis) |
-| **Tipografia** | Sora (títulos) · Inter (textos) via Google Fonts |
-| **Ícones** | [Lucide](https://lucide.dev/) · [Simple Icons](https://simpleicons.org/) |
-| **Hospedagem** | Vercel (site estático) — [dsshubtech.vercel.app](https://dsshubtech.vercel.app) |
+| **Marcação e estilo** | HTML5 e CSS3 (variáveis, `backdrop-filter`, animações, `<dialog>`) |
+| **Comportamento** | JavaScript puro, com os contatos concentrados em um objeto `CONFIG` |
+| **Mascote** | SVG gerado no navegador a partir da grade de pixels do Huby |
+| **Chatbot** | Função serverless na Vercel (`api/chat.js`) com Google Gemini |
+| **Tipografia** | Sora (títulos) e Inter (textos) via Google Fonts |
+| **Ícones** | [Lucide](https://lucide.dev/) e [Simple Icons](https://simpleicons.org/) |
+| **Hospedagem** | Vercel, em [dsshubtech.vercel.app](https://dsshubtech.vercel.app) |
 
 <br />
 
-## Arquitetura
+## Estrutura
 
-A página vive em um único `index.html`, sem etapa de build. O chatbot usa uma função serverless que guarda a chave da IA fora do navegador.
+A página inteira vive em um único `index.html`. O chat usa uma função serverless para manter a chave da IA fora do navegador.
 
 ```
 .
-├── index.html          # página completa (HTML + CSS + JS + chat do Huby)
+├── index.html          # página completa (HTML, CSS, JS, Huby e janela de orçamento)
 ├── api/
-│   └── chat.js         # função serverless: prompt do Huby + chamada ao Gemini
+│   └── chat.js         # função serverless: instruções do Huby e chamada ao Gemini
 ├── vercel.json
 ├── assets/
-│   ├── simbolo.svg     # símbolo oficial da marca (topo)
+│   ├── simbolo.svg     # símbolo oficial da marca (favicon)
 │   ├── og.png          # prévia ao compartilhar o link
 │   ├── apple-touch-icon.png · icon-192.png
-│   └── prints/         # capturas usadas neste README (home e chat)
+│   └── prints/         # capturas usadas neste README
 └── README.md
 ```
 
-Os links ficam concentrados em um único objeto no fim do `index.html`:
+Os contatos ficam em um único objeto perto do fim do `index.html`:
 
 ```js
 const CONFIG = {
   instagram: "dsshubtech",
-  email: "contato@exemplo.com",
+  email: "dsshubtech@gmail.com",
   emailSubject: "Quero conhecer a DSS Hub Tech"
 };
 ```
@@ -118,22 +129,23 @@ python -m http.server 5180
 ```
 
 3. Abra `http://localhost:5180` no navegador. A página funciona, mas o chat precisa da função `/api/chat`.
-4. Para testar o chat, crie uma chave grátis no [Google AI Studio](https://aistudio.google.com/apikey), guarde em `GEMINI_API_KEY` (arquivo `.env.local`, já ignorado pelo git) e rode `vercel dev`.
-5. Edite o bloco `CONFIG` para trocar Instagram, e-mail e assunto.
+4. Para testar o chat, crie uma chave grátis no [Google AI Studio](https://aistudio.google.com/apikey), guarde em `GEMINI_API_KEY` no arquivo `.env.local` (já ignorado pelo git) e rode `vercel dev`.
+5. Para trocar Instagram, e-mail ou assunto, edite o bloco `CONFIG`.
 
 <br />
 
-## Roadmap
+## Próximos passos
 
 - [x] Publicar na Vercel.
-- [x] Chatbot **Huby** com IA.
-- [ ] Ativar o botão do **WhatsApp** quando houver número.
-- [x] Imagem de pré-visualização (Open Graph) para compartilhamento.
-- [x] Chat em streaming, gesto de arrastar e ajustes para mobile.
+- [x] Chatbot Huby com IA.
+- [x] Huby em pixel art na página.
+- [x] Endereço `dsshubtech.vercel.app`.
+- [x] Pedido de orçamento que funciona sem app de e-mail.
+- [ ] Ativar o botão do WhatsApp quando houver número.
 - [ ] Domínio próprio.
 
 <br />
 
 <div align="center">
-<sub>Link na bio · página estática em HTML, CSS e JavaScript · design DSS Hub Tech</sub>
+<sub>Link na bio da DSS Hub Tech · HTML, CSS e JavaScript · do briefing ao deploy, sob medida</sub>
 </div>

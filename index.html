@@ -157,6 +157,28 @@
   .about strong{color:var(--text);font-family:var(--font-display);font-weight:600}
   .sec + .links{margin-top:14px}
 
+  /* janela do orçamento por e-mail */
+  .md{
+    position:fixed;inset:auto 0 0;margin:0 auto;width:100%;max-width:440px;
+    padding:28px 20px calc(20px + env(safe-area-inset-bottom));border:1px solid var(--line);border-bottom:0;border-radius:26px 26px 0 0;
+    background:linear-gradient(180deg,#153447,#0C2029);color:var(--text);text-align:left;
+    box-shadow:0 -20px 60px rgba(0,0,0,.5);
+  }
+  .md[open]{animation:pop .35s var(--ease)}
+  .md::backdrop{background:rgba(3,10,15,.72)}
+  .md h2{font-family:var(--font-display);font-size:20px;font-weight:700;letter-spacing:-.02em;padding-right:52px}
+  .md p{margin:8px 0 18px;font-size:14.5px;line-height:1.5;color:var(--muted)}
+  .md-x{position:absolute;top:16px;right:16px}
+  .md-btn{display:flex;align-items:center;justify-content:center;min-height:50px;margin-top:10px;border-radius:16px;
+    font:600 15px var(--font-display);text-decoration:none;color:var(--text);background:var(--glass);border:1px solid var(--line)}
+  .md-btn.main{background:#fff;color:var(--brand);border-color:#fff}
+  .md-btn:focus-visible,.md-copy button:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+  .md-copy{display:flex;align-items:center;gap:10px;margin-top:16px;padding:10px 10px 10px 14px;border-radius:16px;border:1px dashed var(--line)}
+  .md-copy span{flex:1;min-width:0;font-size:14.5px;user-select:all;overflow-wrap:anywhere}
+  .md-copy button{flex:none;min-height:40px;padding:0 14px;border:0;border-radius:12px;background:var(--sky);color:#08161E;font:600 13px var(--font-display);cursor:pointer}
+  @media (min-width:600px){.md{inset:0;margin:auto;height:fit-content;border-radius:26px;border-bottom:1px solid var(--line);padding-bottom:22px}}
+  @media (prefers-reduced-motion:reduce){.md[open]{animation:none}}
+
   footer{margin-top:40px;font-size:12.5px;color:rgba(244,248,251,.62);text-wrap:balance;letter-spacing:.01em}
 
   @media (prefers-reduced-motion:reduce){
@@ -339,6 +361,18 @@
 </div>
 <div class="sr" id="sr" aria-live="polite"></div>
 
+<dialog class="md" id="md" aria-labelledby="md-t">
+  <button class="x md-x" id="md-close" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <h2 id="md-t">Peça um orçamento</h2>
+  <p>Conta sua ideia por e-mail. A gente devolve com o orçamento e o valor, sem compromisso.</p>
+  <a class="md-btn main" id="md-gmail" target="_blank" rel="noopener">Escrever pelo Gmail</a>
+  <a class="md-btn" id="md-app">Abrir meu app de e-mail</a>
+  <div class="md-copy">
+    <span id="md-addr"></span>
+    <button type="button" id="md-cp">Copiar e-mail</button>
+  </div>
+</dialog>
+
 <script>
   // Edite só aqui.
   const CONFIG = {
@@ -351,6 +385,29 @@
   $("ig").href = "https://instagram.com/" + CONFIG.instagram;
   $("ig-handle").textContent = "@" + CONFIG.instagram;
   $("mail").href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent(CONFIG.emailSubject);
+
+  // ---- Orçamento por e-mail ----
+  // O mailto sozinho não faz nada sem app de e-mail padrão (comum no Windows e no navegador do Instagram),
+  // então o botão abre uma escolha: Gmail na web, app de e-mail ou copiar o endereço.
+  (function(){
+    const md=$("md"),body="Olá, DSS! Meu negócio é:\n\nO que eu queria resolver:\n";
+    $("md-gmail").href="https://mail.google.com/mail/?view=cm&fs=1&to="+encodeURIComponent(CONFIG.email)+"&su="+encodeURIComponent(CONFIG.emailSubject)+"&body="+encodeURIComponent(body);
+    $("md-app").href=$("mail").href+"&body="+encodeURIComponent(body);
+    $("md-addr").textContent=CONFIG.email;
+    window.openMail=e=>{
+      if(!md.showModal)return; // navegador antigo: segue o mailto
+      e.preventDefault();md.showModal();
+    };
+    $("mail").addEventListener("click",openMail);
+    $("md-close").onclick=()=>md.close();
+    md.addEventListener("click",e=>{if(e.target===md)md.close();});
+    $("md-cp").onclick=async()=>{
+      const b=$("md-cp");
+      try{await navigator.clipboard.writeText(CONFIG.email);b.textContent="Copiado!";}
+      catch(err){const r=document.createRange();r.selectNodeContents($("md-addr"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selecionado";}
+      setTimeout(()=>b.textContent="Copiar e-mail",2000);
+    };
+  })();
 
 
   // ---- Huby em pixel art (mesmo desenho do kit: grade 16x15, pose "Parado" com piscada) ----
@@ -409,7 +466,7 @@
     const wide=()=>matchMedia("(min-width:600px)").matches;
     const wait=ms=>new Promise(r=>setTimeout(r,ms));
     const DOTS='<span class="dots"><i></i><i></i><i></i></span>';
-    cta.href=$("mail").href;
+    cta.href=$("mail").href;cta.addEventListener("click",openMail);
 
     const FIRST=["Tenho um salão, o que vocês fariam?","O que é um dashboard?","Como peço um orçamento?"];
     const POOL=["Como peço um orçamento?","Quanto custa?","Como funciona um chatbot?","Quem são vocês?","O que é um dashboard?","O que o Huby consegue fazer?"];
@@ -532,7 +589,7 @@
     $("huby-close").onclick=close;scrim.onclick=close;
     $("form").onsubmit=e=>{e.preventDefault();ask(inp.value);};
     document.addEventListener("keydown",e=>{
-      if(!isOpen)return;
+      if(!isOpen||$("md").open)return; // a janela de e-mail cuida do próprio teclado
       if(e.key==="Escape"){close();return;}
       if(e.key==="Tab"){ // mantém o foco dentro do chat
         const f=[...panel.querySelectorAll("button,a[href],input")].filter(x=>!x.disabled&&x.offsetParent!==null);
