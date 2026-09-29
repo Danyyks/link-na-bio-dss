@@ -162,6 +162,10 @@
   .niche .emo{font-size:22px;line-height:1;font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif}
   .niche b{font-family:var(--font-display);font-size:15px;font-weight:600;letter-spacing:-.015em}
   .badge{white-space:nowrap;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+  .niches.one{grid-template-columns:1fr}
+  .niche.next{border-style:dashed;background:rgba(255,255,255,.03)}
+  .niche .desc{font-size:13.5px;line-height:1.45;color:var(--muted)}
+  .niche .badge{color:var(--sky);border-color:rgba(95,180,240,.4)}
   .about{padding:18px;border-radius:22px;background:var(--glass);border:1px solid var(--line);font-size:15px;line-height:1.55;color:var(--muted)}
   .about strong{color:var(--text);font-family:var(--font-display);font-weight:600}
   .sec + .links{margin-top:14px}
@@ -314,19 +318,10 @@
 
   <section class="sec rise" style="--i:8" aria-labelledby="h-niche">
     <h2 id="h-niche">Apps por nicho</h2>
-    <p class="hint">Templates prontos chegando. Toque para perguntar ao Huby.</p>
-    <div class="niches">
-      <button type="button" class="niche" data-q="Tenho uma barbearia, o que vocês fariam?"><span class="emo" aria-hidden="true">💈</span><b>Barbearia</b></button>
-      <button type="button" class="niche" data-q="Tenho um studio de beleza, o que vocês fariam?"><span class="emo" aria-hidden="true">💅</span><b>Studio de beleza</b></button>
-      <button type="button" class="niche" data-q="Vendo doces e salgados, o que vocês fariam?"><span class="emo" aria-hidden="true">🧁</span><b>Doces e salgados</b></button>
-      <button type="button" class="niche" data-q="Tenho uma lanchonete, o que vocês fariam?"><span class="emo" aria-hidden="true">🍔</span><b>Lanchonete</b></button>
-      <button type="button" class="niche" data-q="Tenho uma cafeteria, o que vocês fariam?"><span class="emo" aria-hidden="true">☕</span><b>Cafeteria</b></button>
-      <button type="button" class="niche" data-q="Atendo como psicólogo, o que vocês fariam?"><span class="emo" aria-hidden="true">🧠</span><b>Psicologia</b></button>
-      <button type="button" class="niche" data-q="Sou personal trainer, o que vocês fariam?"><span class="emo" aria-hidden="true">🏋️</span><b>Personal trainer</b></button>
-      <button type="button" class="niche" data-q="Trabalho com fotografia, o que vocês fariam?"><span class="emo" aria-hidden="true">📷</span><b>Fotografia</b></button>
-      <button type="button" class="niche" data-q="Tenho um escritório de advocacia, o que vocês fariam?"><span class="emo" aria-hidden="true">⚖️</span><b>Advocacia</b></button>
-      <button type="button" class="niche" data-q="Crio conteúdo na internet, o que vocês fariam?"><span class="emo" aria-hidden="true">🎥</span><b>Criador de conteúdo</b></button>
-      <button type="button" class="niche" data-q="Tenho uma loja, o que vocês fariam?"><span class="emo" aria-hidden="true">🛍️</span><b>Loja</b></button>
+    <p class="hint">Um app modelo pronto para cada tipo de negócio.</p>
+    <div class="niches one">
+      <button type="button" class="niche" data-q="Tenho um studio de beleza e nail design, o que vocês fariam?"><span class="emo" aria-hidden="true">💅</span><b>Beleza e nail design</b><span class="badge">Em construção</span></button>
+      <button type="button" class="niche next" data-q="Queria ver um app para o meu tipo de negócio"><span class="emo" aria-hidden="true">✨</span><b>Qual o próximo nicho?</b><span class="desc">A gente lança um nicho por vez. Conta pro Huby qual você quer ver.</span></button>
     </div>
   </section>
 
