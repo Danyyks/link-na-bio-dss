@@ -10,7 +10,7 @@ Página "link na bio" da DSS Hub Tech — dashboards e chatbots sob medida para 
 
 <br />
 
-[![Ver no ar](https://img.shields.io/badge/Ver_no_ar-link--na--bio--dss.vercel.app-18394B?style=for-the-badge&logo=vercel&logoColor=white)](https://link-na-bio-dss.vercel.app)
+[![Ver no ar](https://img.shields.io/badge/Ver_no_ar-dsshubtech.vercel.app-18394B?style=for-the-badge&logo=vercel&logoColor=white)](https://dsshubtech.vercel.app)
 
 <br />
 
@@ -72,7 +72,7 @@ Esta página é o cartão de visitas digital da marca: um lugar único para o cl
 | **Chatbot** | Função serverless na Vercel (`api/chat.js`) · Google Gemini (`gemini-flash-lite-latest`, tier grátis) |
 | **Tipografia** | Sora (títulos) · Inter (textos) via Google Fonts |
 | **Ícones** | [Lucide](https://lucide.dev/) · [Simple Icons](https://simpleicons.org/) |
-| **Hospedagem** | Vercel (site estático) — [link-na-bio-dss.vercel.app](https://link-na-bio-dss.vercel.app) |
+| **Hospedagem** | Vercel (site estático) — [dsshubtech.vercel.app](https://dsshubtech.vercel.app) |
 
 <br />
 
