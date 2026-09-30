@@ -27,7 +27,7 @@ Página "link na bio" da DSS Hub Tech. Reúne o pedido de orçamento, o Instagra
 
 ## Sobre o projeto
 
-A **DSS Hub Tech** é formada por Dany, Suellen e Simone, três amigos de Análise e Desenvolvimento de Sistemas em Sorocaba. A gente cria chatbots, dashboards e apps sob medida para quem atende, vende e empreende.
+A **DSS Hub Tech** foi fundada por Dany, Suellen e Simone, e o nome vem das iniciais dos três. A empresa desenvolve chatbots, dashboards e apps sob medida para tirar o trabalho repetido do negócio do cliente.
 
 Esta página é o cartão de visitas digital da marca e o link que fica na bio do Instagram. Quem chega aqui pode pedir um orçamento, conversar com o Huby ou seguir a DSS. O visual segue a identidade da empresa: azul-petróleo `#18394B`, cartões de vidro, Sora nos títulos e Inter nos textos.
 
@@ -70,7 +70,8 @@ As instruções do Huby ficam no próprio `api/chat.js`. As regras principais:
 - Fala da equipe como um todo: depois do pedido de orçamento, "alguém da equipe entra em contato". Os nomes de quem está por trás da DSS só aparecem se o visitante perguntar diretamente.
 - Conduz a conversa com uma pergunta por vez: descobre o ramo do negócio, o que dá trabalho hoje, sugere uma solução concreta e só então convida para o orçamento.
 - Sabe que a DSS lança um app modelo por nicho, um de cada vez, começando por beleza e nail design, que ainda está em construção.
-- Atende negócios de qualquer tamanho em Sorocaba e região.
+- Atende negócios de qualquer tamanho, com tom profissional: não fala de faculdade, amizade nem região.
+- Responde perguntas fora do tema com humor de robô, em no máximo duas frases, e volta para o negócio da pessoa.
 - Não pede nem aceita dados sensíveis.
 
 <br />
