@@ -71,7 +71,7 @@ As instruções do Huby ficam no próprio `api/chat.js`. As regras principais:
 - Conduz a conversa com uma pergunta por vez: descobre o ramo do negócio, o que dá trabalho hoje, sugere uma solução concreta e só então convida para o orçamento.
 - Sabe que a DSS lança um app modelo por nicho, um de cada vez, começando por beleza e nail design, que ainda está em construção.
 - Atende negócios de qualquer tamanho, com tom profissional: não fala de faculdade, amizade nem região.
-- Responde perguntas fora do tema com humor de robô, em no máximo duas frases, e volta para o negócio da pessoa.
+- Responde perguntas fora do tema de verdade, com humor e em no máximo duas frases, e depois volta para o negócio da pessoa. Não opina sobre política ou religião, não dá conselho de saúde ou dinheiro e não inventa fatos em tempo real.
 - Não pede nem aceita dados sensíveis.
 
 <br />
